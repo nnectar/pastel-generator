@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: color }}>
+    <><div style={{ backgroundColor: color, height: window.innerHeight, width: window.innerWidth }}></div><div style={{ backgroundColor: color }}>
       <h1 style={{ color: color }}>Random Pastel Colors</h1>
       <div id="name" style={{ fontSize: '24px', fontWeight: 'bold', textAlign: 'center', marginTop: '50px' }}>
         {name}
@@ -44,7 +44,7 @@ function App() {
       >
         Generate Color
       </button>
-    </div>
+    </div></>
   );
 }
 
