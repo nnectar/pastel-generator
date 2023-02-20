@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function getRandomPastelColor() {
   var hue = Math.floor(Math.random() * 360);
@@ -7,12 +7,19 @@ function getRandomPastelColor() {
 }
 
 function App() {
-  const [color, setColor] = useState('#f5f5dc');
+  const [color, setColor] = useState(getRandomPastelColor());
   const [name, setName] = useState('nneoma');
 
   const handleColorChange = () => {
     setColor(getRandomPastelColor());
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleColorChange();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div style={{ backgroundColor: color }}>
