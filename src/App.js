@@ -10,13 +10,9 @@ function App() {
   const [color, setColor] = useState(getRandomPastelColor());
   const [name, setName] = useState('nneoma');
 
-  const handleColorChange = () => {
-    setColor(getRandomPastelColor());
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
-      handleColorChange();
+      setColor(getRandomPastelColor());
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -27,23 +23,6 @@ function App() {
       <div id="name" style={{ fontSize: '24px', fontWeight: 'bold', textAlign: 'center', marginTop: '50px' }}>
         {name}
       </div>
-      <button
-        style={{
-          backgroundColor: '#e6e6fa',
-          color: '#333',
-          padding: '10px 20px',
-          border: 'none',
-          borderRadius: '4px',
-          fontSize: '24px',
-          marginTop: '50px',
-          display: 'block',
-          marginLeft: 'auto',
-          marginRight: 'auto'
-        }}
-        onClick={handleColorChange}
-      >
-        Generate Color
-      </button>
     </div></>
   );
 }
